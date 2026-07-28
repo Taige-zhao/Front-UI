@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Website Clone",
-  description: "Pixel-perfect website clone",
+  title: "Enterprise Simulation Software | AI Technology | Scalera AI",
+  description:
+    "Our simulation software is used by enterprise companies to quickly and efficiently simulate future scenarios in a safe, virtual environment.",
+  icons: {
+    icon: [
+      { url: "/seo/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/seo/favicon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [{ url: "/seo/apple-touch-icon.png", sizes: "180x180" }],
+  },
 };
 
 export default function RootLayout({
@@ -23,11 +20,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className="h-full">
+      <head>
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link rel="stylesheet" href="/fonts/PxGrotesk/PxGroteskRegular.css" />
+      </head>
+      <body className="min-h-full flex flex-col bg-simu-bg text-white">
+        {children}
+      </body>
     </html>
   );
 }
