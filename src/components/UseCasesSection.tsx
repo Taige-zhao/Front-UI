@@ -50,21 +50,23 @@ export function UseCasesSection() {
                   key={service.number}
                   className="group relative flex min-h-[310px] flex-col border border-[#dedbe5] bg-[#f7f6f8] p-7 transition-colors duration-300 hover:bg-simu-blue md:min-h-[390px] md:p-9"
                 >
-                  {service.href ? (
-                    <a
-                      href={service.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="absolute inset-0 z-10"
-                      aria-label={`Open ${service.title}`}
-                    />
-                  ) : null}
                   <span className="text-[11px] tracking-[1px] text-simu-blue transition-colors duration-300 group-hover:text-white">
                     {service.number}
                   </span>
                   <div className="mt-auto border-t border-[#c9c4d2] pt-6 transition-colors duration-300 group-hover:border-white/40">
                     <h2 className="max-w-[280px] text-[25px] leading-[1.08] tracking-[-0.8px] transition-colors duration-300 group-hover:text-white md:text-[30px]">
-                      {service.title}
+                      {service.href ? (
+                        <a
+                          href={service.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="relative z-10 underline decoration-1 underline-offset-4"
+                        >
+                          {service.title}
+                        </a>
+                      ) : (
+                        service.title
+                      )}
                     </h2>
                     <p className="mt-5 text-[15px] leading-6 text-[#625d73] transition-colors duration-300 group-hover:text-white/80">
                       {service.description}
