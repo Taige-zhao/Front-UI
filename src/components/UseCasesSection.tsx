@@ -18,6 +18,7 @@ const SERVICES = [
   {
     number: "03",
     title: "Agent-Based Market Research Surveys",
+    href: "https://agentsociety-sandbox.onrender.com/",
     description:
       "Test market scenarios before you launch. Our agent-based simulations model different customer perspectives, helping you investigate likely demand, preferences, and market reactions.",
   },
@@ -47,8 +48,17 @@ export function UseCasesSection() {
               {SERVICES.map((service) => (
                 <article
                   key={service.number}
-                  className="group flex min-h-[310px] flex-col border border-[#dedbe5] bg-[#f7f6f8] p-7 transition-colors duration-300 hover:bg-simu-blue md:min-h-[390px] md:p-9"
+                  className="group relative flex min-h-[310px] flex-col border border-[#dedbe5] bg-[#f7f6f8] p-7 transition-colors duration-300 hover:bg-simu-blue md:min-h-[390px] md:p-9"
                 >
+                  {service.href ? (
+                    <a
+                      href={service.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="absolute inset-0 z-10"
+                      aria-label={`Open ${service.title}`}
+                    />
+                  ) : null}
                   <span className="text-[11px] tracking-[1px] text-simu-blue transition-colors duration-300 group-hover:text-white">
                     {service.number}
                   </span>
